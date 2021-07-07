@@ -1,0 +1,16 @@
+{
+  "name": "instaclone",
+  "version": "0.0.1",
+  "description": "servidor de la web app instaclone",
+  "main": "index.js",
+  "author": "Cesar Briones",
+  "license": "MIT",
+  "scripts": {
+    "dev": "node ./index.js"
+  },
+  "dependencies": {
+    "colors": "^1.4.0",
+    "dotenv": "^10.0.0",
+    "mongoose": "^5.13.2"
+  }
+}
