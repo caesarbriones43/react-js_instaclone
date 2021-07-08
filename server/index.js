@@ -1,5 +1,10 @@
 const mongoose = require("mongoose");
-var colors = require("colors");
+const { ApolloServer } = require("apollo-server");
+const colors = require("colors");
+
+const resolvers = require("./gql/resolver");
+const { typeDefs, books } = require("./gql/schema");
+
 require("dotenv").config({ path: ".env" });
 
 mongoose.connect(
@@ -14,7 +19,14 @@ mongoose.connect(
     if (err) {
       console.log("Error de conexion!".red);
     } else {
-      console.log("Conexion correcta".green);
+      runServer();
     }
   }
 );
+
+const runServer = () => {
+  const server = new ApolloServer({ typeDefs, resolvers });
+  server.listen().then(({ url }) => {
+    console.log(`🚀  Server ready at ${url}`.cyan);
+  });
+};
