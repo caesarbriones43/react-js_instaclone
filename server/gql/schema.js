@@ -10,7 +10,6 @@ const typeDefs = gql`
     siteWeb: String
     description: String
     password: String
-    createAt: String
   }
 
   input UserInput {
